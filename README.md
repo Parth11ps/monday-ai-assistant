@@ -6,6 +6,15 @@ The project explores how a desktop assistant can move beyond answering questions
 
 > **Status:** Development prototype. The current execution path uses typed input and spoken output. Some experimental realtime components remain in the source but are not enabled.
 
+## Project preview
+
+<p align="center">
+  <img src="assets/monday-file-tools.png" alt="Monday creating a local file" width="49%">
+  <img src="assets/monday-screen-context.png" alt="Monday using screen context" width="49%">
+</p>
+
+*Monday’s desktop interface demonstrating local file tools and screen-aware AI assistance.*
+
 ## Features
 
 - **AI chat:** Send typed questions and display Gemini-generated responses.
@@ -116,6 +125,14 @@ Local command recognition uses regular expressions, so wording matters. Applicat
 ## How it works
 
 The GUI sends typed input to a background queue. Recognised local commands are handled directly by Python functions. Other requests go to Gemini, optionally with the latest camera or screen image. Responses appear in the conversation panel and are queued for ElevenLabs speech synthesis and local playback.
+
+### System architecture
+
+<p align="center">
+  <img src="assets/monday-system-architecture.png" alt="Monday system architecture diagram" width="850">
+</p>
+
+The interface passes user requests to the AI core, which coordinates Gemini processing, ElevenLabs speech synthesis, local tools, and audio playback.
 
 The main components in `main.py` are:
 
